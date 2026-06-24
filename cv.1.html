@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium personal portfolio for Yassine El Biad, quality controller, data entry specialist, and junior web developer based in Casablanca, Morocco.">
+  <meta name="theme-color" content="#080506">
+  <title>Yassine El Biad | Premium Portfolio</title>
+  <style>
+    :root {
+  --red: #e22227;
+  --red-2: #c7080c;
+  --red-3: #6c0102;
+  --red-4: #440101;
+  --bg: #050405;
+  --bg-2: #0b0d0f;
+  --dark: #222b31;
+  --muted-dark: #55666e;
+  --white: #f8fafb;
+  --soft: #ccd3d7;
+  --muted: #89949b;
+  --line: rgba(255, 255, 255, 0.13);
+  --glass: rgba(17, 21, 24, 0.68);
+  --glass-strong: rgba(24, 29, 32, 0.84);
+  --shadow: 0 28px 90px rgba(0, 0, 0, 0.55);
+  --glow: 0 0 40px rgba(226, 34, 39, 0.35);
+  --radius: 8px;
+  --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 77% 12%, rgba(226, 34, 39, 0.18), transparent 32rem),
+    radial-gradient(circle at 8% 38%, rgba(108, 1, 2, 0.36), transparent 28rem),
+    linear-gradient(135deg, #030202 0%, #0a0b0d 42%, #151b1f 100%);
+  color: var(--white);
+  font-family: var(--font);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -4;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 78%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -3;
+  background:
+    linear-gradient(115deg, rgba(226, 34, 39, 0.12), transparent 22%, rgba(85, 102, 110, 0.08) 52%, transparent 76%),
+    radial-gradient(circle at 45% 12%, rgba(255, 255, 255, 0.08), transparent 1px);
+  opacity: 0.72;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.particle-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.68;
+}
+
+.ambient {
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(12px);
+  opacity: 0.55;
+}
+
+.ambient-one {
+  width: 34rem;
+  height: 34rem;
+  right: -9rem;
+  top: 7rem;
+  background: radial-gradient(circle, rgba(226, 34, 39, 0.28), rgba(108, 1, 2, 0.08) 45%, transparent 70%);
+}
+
+.ambient-two {
+  width: 28rem;
+  height: 28rem;
+  left: -10rem;
+  bottom: 18rem;
+  background: radial-gradient(circle, rgba(199, 8, 12, 0.2), transparent 72%);
+}
+
+.site-header {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  width: min(1180px, calc(100% - 28px));
+  min-height: 62px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(5, 4, 5, 0.76);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(22px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--red), var(--red-4));
+  box-shadow: var(--glow);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.brand-name {
+  font-weight: 800;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.nav {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 13px;
+  border-radius: 999px;
+  color: var(--soft);
+  font-size: 0.82rem;
+  transition: color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--white);
+  background: linear-gradient(135deg, rgba(226, 34, 39, 0.92), rgba(108, 1, 2, 0.9));
+  box-shadow: 0 0 24px rgba(226, 34, 39, 0.32);
+}
+
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.lang-btn {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--soft);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 800;
+  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+  color: var(--white);
+  background: var(--red);
+  transform: translateY(-1px);
+}
+
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 4px auto;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.section {
+  position: relative;
+  padding: 112px 0;
+}
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding-top: 132px;
+}
+
+.section-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.78fr);
+  gap: clamp(32px, 6vw, 78px);
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 8px 12px;
+  border: 1px solid rgba(226, 34, 39, 0.38);
+  border-radius: 999px;
+  background: rgba(226, 34, 39, 0.08);
+  color: #ffd9da;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 18px rgba(226, 34, 39, 0.9);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 780px;
+  margin: 22px 0 16px;
+  font-size: clamp(3.7rem, 10vw, 8.5rem);
+  line-height: 0.86;
+  letter-spacing: 0;
+}
+
+h2 {
+  max-width: 850px;
+  margin: 16px 0 0;
+  font-size: clamp(2.05rem, 4.8vw, 4.7rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+}
+
+.hero-title {
+  max-width: 760px;
+  margin-bottom: 14px;
+  color: #ffebeb;
+  font-size: clamp(1.12rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+}
+
+.hero-summary,
+.section-heading p,
+.about-content p {
+  color: var(--soft);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.hero-summary {
+  max-width: 650px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 32px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--white);
+  font-weight: 800;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--red), var(--red-3));
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: var(--glow);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 20px 55px rgba(226, 34, 39, 0.32);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(226, 34, 39, 0.56);
+  background: rgba(226, 34, 39, 0.12);
+}
+
+.btn-icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 660px;
+}
+
+.metric-card,
+.stat-card,
+.about-card,
+.skills-panel,
+.project-card,
+.education-card,
+.cert-card,
+.contact-action {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    var(--glass);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(22px);
+}
+
+.metric-card::before,
+.stat-card::before,
+.about-card::before,
+.skills-panel::before,
+.project-card::before,
+.education-card::before,
+.cert-card::before,
+.contact-action::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(226, 34, 39, 0.18), transparent 36%, rgba(255, 255, 255, 0.04));
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+.metric-card:hover::before,
+.stat-card:hover::before,
+.about-card:hover::before,
+.skills-panel:hover::before,
+.project-card:hover::before,
+.education-card:hover::before,
+.cert-card:hover::before,
+.contact-action:hover::before {
+  opacity: 1;
+}
+
+.metric-card {
+  min-height: 114px;
+  padding: 18px;
+}
+
+.metric-card strong,
+.stat-number {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--white);
+  font-size: clamp(1.8rem, 3.5vw, 3.05rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.metric-card span,
+.stat-card p,
+.fact-value,
+.skill-level,
+.timeline-meta,
+.card-meta,
+.contact-meta {
+  color: var(--muted);
+}
+
+.hero-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.profile-frame {
+  position: relative;
+  width: min(100%, 430px);
+  aspect-ratio: 0.78;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(226, 34, 39, 0.42), transparent 28%),
+    linear-gradient(145deg, rgba(34, 43, 49, 0.82), rgba(0, 0, 0, 0.84));
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.62), 0 0 70px rgba(226, 34, 39, 0.24);
+  overflow: hidden;
+}
+
+.profile-frame::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, transparent, rgba(226, 34, 39, 0.18), transparent),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 12px);
+  mask-image: radial-gradient(circle at 50% 45%, black 0 48%, transparent 73%);
+}
+
+.profile-glow {
+  position: absolute;
+  width: 62%;
+  height: 62%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(226, 34, 39, 0.6), transparent 66%);
+  filter: blur(12px);
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+.profile-orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+}
+
+.orbit-one {
+  width: 68%;
+  height: 42%;
+  transform: rotate(-24deg);
+  animation: orbitDrift 8s ease-in-out infinite;
+}
+
+.orbit-two {
+  width: 82%;
+  height: 52%;
+  transform: rotate(24deg);
+  border-color: rgba(226, 34, 39, 0.34);
+  animation: orbitDrift 9s ease-in-out infinite reverse;
+}
+
+.profile-placeholder {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  color: var(--soft);
+  font-weight: 800;
+  text-align: center;
+}
+
+.profile-initials {
+  display: grid;
+  place-items: center;
+  width: 122px;
+  height: 122px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.38);
+  color: var(--white);
+  font-size: 2rem;
+  box-shadow: inset 0 0 34px rgba(226, 34, 39, 0.32), var(--glow);
+}
+
+.signal-panel {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  display: grid;
+  gap: 3px;
+  width: min(230px, 58%);
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(5, 4, 5, 0.72);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.signal-panel span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.signal-panel strong {
+  color: var(--white);
+}
+
+.stats-band {
+  padding: 44px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.stat-card {
+  min-height: 150px;
+  padding: 22px;
+}
+
+.stat-card p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.15fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.two-column .section-heading {
+  grid-column: 1 / -1;
+}
+
+.about-card {
+  padding: 22px;
+}
+
+.mini-profile {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mini-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--red), var(--red-4));
+  box-shadow: var(--glow);
+  font-weight: 900;
+}
+
+.mini-profile h3,
+.mini-profile p {
+  margin: 0;
+}
+
+.mini-profile p {
+  color: var(--muted);
+}
+
+.facts {
+  display: grid;
+  gap: 15px;
+  margin: 0;
+}
+
+.fact {
+  display: grid;
+  gap: 4px;
+}
+
+.fact-label {
+  color: var(--soft);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.fact-value {
+  line-height: 1.45;
+}
+
+.about-content {
+  display: grid;
+  gap: 20px;
+}
+
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.strength {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.strength strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.strength span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: linear-gradient(var(--red), rgba(255, 255, 255, 0.08));
+}
+
+.timeline-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.timeline-dot {
+  position: relative;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--red), var(--red-4));
+  box-shadow: var(--glow);
+}
+
+.timeline-content {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--glass);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(22px);
+}
+
+.timeline-content h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+}
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.timeline-content ul {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.timeline-content li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--soft);
+  line-height: 1.55;
+}
+
+.timeline-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 16px rgba(226, 34, 39, 0.72);
+}
+
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr;
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.skills-panel {
+  padding: 22px;
+}
+
+.skill-row {
+  display: grid;
+  gap: 9px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skill-row:last-child {
+  border-bottom: 0;
+}
+
+.skill-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.skill-name {
+  font-weight: 800;
+}
+
+.skill-level {
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+}
+
+.skill-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.skill-fill {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--red), #ff6c6f);
+  box-shadow: 0 0 20px rgba(226, 34, 39, 0.48);
+  transition: width 1200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--soft);
+  font-weight: 700;
+}
+
+.language-row {
+  display: grid;
+  gap: 10px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.language-row:last-child {
+  border-bottom: 0;
+}
+
+.language-row strong {
+  font-size: 1.05rem;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.level-chip {
+  display: grid;
+  place-items: center;
+  min-height: 34px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: rgba(226, 34, 39, 0.09);
+  color: var(--soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.language-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.project-grid,
+.education-grid,
+.cert-grid,
+.contact-actions {
+  display: grid;
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.project-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-card {
+  display: grid;
+  min-height: 100%;
+}
+
+.project-media {
+  position: relative;
+  min-height: 210px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(226, 34, 39, 0.5), transparent 34%),
+    linear-gradient(145deg, rgba(85, 102, 110, 0.26), rgba(0, 0, 0, 0.4)),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 16px);
+  overflow: hidden;
+}
+
+.project-media::before,
+.project-media::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+}
+
+.project-media::before {
+  width: 170px;
+  height: 170px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.project-media::after {
+  width: 260px;
+  height: 110px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+}
+
+.project-media span {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 1;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.38);
+  color: var(--soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.project-body,
+.education-card,
+.cert-card {
+  padding: 22px;
+}
+
+.card-meta {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.project-body p,
+.education-card p,
+.cert-card p {
+  color: var(--soft);
+  line-height: 1.6;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.tech-list span {
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: rgba(226, 34, 39, 0.1);
+  color: #ffd9da;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.project-button {
+  width: fit-content;
+  opacity: 0.72;
+  cursor: default;
+}
+
+.education-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.education-card {
+  min-height: 100%;
+}
+
+.education-card h3 {
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+
+.education-card a {
+  color: #ffb8ba;
+  font-weight: 800;
+  word-break: break-word;
+}
+
+.cert-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cert-card {
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(226, 34, 39, 0.52);
+}
+
+.contact-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.contact-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0;
+}
+
+.contact-action {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-height: 92px;
+  padding: 18px;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.contact-action:hover {
+  transform: translateY(-4px);
+  border-color: rgba(226, 34, 39, 0.48);
+}
+
+.contact-action.disabled {
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+.contact-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--red), var(--red-4));
+  box-shadow: var(--glow);
+}
+
+.contact-text {
+  min-width: 0;
+}
+
+.contact-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 900;
+}
+
+.contact-meta {
+  display: block;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+
+.footer {
+  padding: 30px 0 42px;
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes orbitDrift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+[dir="rtl"] body {
+  text-align: right;
+}
+
+[dir="rtl"] .timeline::before {
+  left: auto;
+  right: 17px;
+}
+
+[dir="rtl"] .timeline-content li {
+  padding-left: 0;
+  padding-right: 18px;
+}
+
+[dir="rtl"] .timeline-content li::before {
+  left: auto;
+  right: 0;
+}
+
+@media (max-width: 1120px) {
+  .site-header {
+    grid-template-columns: auto auto auto;
+  }
+
+  .nav-toggle {
+    display: block;
+    order: 3;
+  }
+
+  .language-switcher {
+    justify-self: end;
+  }
+
+  .nav {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(5, 4, 5, 0.94);
+    box-shadow: var(--shadow);
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav-link {
+    justify-content: flex-start;
+  }
+
+  .hero-grid,
+  .contact-shell,
+  .skills-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    max-width: 540px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .project-grid,
+  .cert-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .site-header {
+    top: 10px;
+    width: min(100% - 18px, 1180px);
+    border-radius: 24px;
+  }
+
+  .brand-name {
+    display: none;
+  }
+
+  .section {
+    padding: 82px 0;
+  }
+
+  .hero {
+    padding-top: 116px;
+  }
+
+  .hero-metrics,
+  .stats-grid,
+  .two-column,
+  .strength-grid,
+  .education-grid,
+  .project-grid,
+  .cert-grid,
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: clamp(3.3rem, 19vw, 5.2rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 10vw, 3.2rem);
+  }
+
+  .signal-panel {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .profile-frame {
+    width: min(100%, 360px);
+  }
+
+  .level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .section-shell {
+    width: min(100% - 22px, 1180px);
+  }
+
+  .site-header {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .language-switcher {
+    gap: 1px;
+  }
+
+  .lang-btn {
+    width: 31px;
+    height: 31px;
+    font-size: 0.68rem;
+  }
+
+  .hero-actions {
+    display: grid;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .timeline-card {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .timeline-dot {
+    width: 28px;
+    height: 28px;
+  }
+
+  .timeline::before {
+    left: 13px;
+  }
+
+  [dir="rtl"] .timeline::before {
+    right: 13px;
+  }
+
+  .timeline-content,
+  .about-card,
+  .skills-panel,
+  .project-body,
+  .education-card,
+  .cert-card {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <canvas class="particle-canvas" id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="Yassine El Biad home">
+      <span class="brand-mark">YE</span>
+      <span class="brand-name">Yassine El Biad</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="siteNav" aria-label="Primary navigation">
+      <a href="#home" class="nav-link active" data-nav="home" data-i18n="nav.home">Home</a>
+      <a href="#about" class="nav-link" data-nav="about" data-i18n="nav.about">About</a>
+      <a href="#experience" class="nav-link" data-nav="experience" data-i18n="nav.experience">Experience</a>
+      <a href="#skills" class="nav-link" data-nav="skills" data-i18n="nav.skills">Skills</a>
+      <a href="#projects" class="nav-link" data-nav="projects" data-i18n="nav.projects">Projects</a>
+      <a href="#education" class="nav-link" data-nav="education" data-i18n="nav.education">Education</a>
+      <a href="#certifications" class="nav-link" data-nav="certifications" data-i18n="nav.certifications">Certifications</a>
+      <a href="#contact" class="nav-link" data-nav="contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <div class="language-switcher" aria-label="Language switcher">
+      <button class="lang-btn active" type="button" data-lang="en">EN</button>
+      <button class="lang-btn" type="button" data-lang="fr">FR</button>
+      <button class="lang-btn" type="button" data-lang="es">ES</button>
+      <button class="lang-btn" type="button" data-lang="ar">AR</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="home" data-section="home">
+      <div class="section-shell hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow" data-i18n="hero.badge">Quality | Data | Web</span>
+          <h1>Yassine El Biad</h1>
+          <p class="hero-title" data-i18n="hero.title">Quality Controller, Data Entry Specialist & Junior Web Developer</p>
+          <p class="hero-summary" data-i18n="hero.summary">Motivated and organized professional with experience in industrial quality control, production tracking, accurate data entry, and foundational web programming.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:elbiadyassin25@gmail.com">
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.2V6.8Zm2.2-.6 5.8 5 5.8-5H6.2Zm11.6 2.4-4.9 4.2a1.4 1.4 0 0 1-1.8 0L6.2 8.6v8.6c0 .3.3.6.6.6h10.4c.3 0 .6-.3.6-.6V8.6Z"/></svg>
+              </span>
+              <span data-i18n="hero.ctaEmail">Email Yassine</span>
+            </a>
+            <a class="btn btn-ghost" href="#experience">
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-2.1-5H14v2h6V3h-2v2.3A9 9 0 0 0 12 3Zm1 4h-2v6l5 3 .9-1.6-3.9-2.3V7Z"/></svg>
+              </span>
+              <span data-i18n="hero.ctaWork">Explore Profile</span>
+            </a>
+          </div>
+
+          <div class="hero-metrics" id="heroMetrics" aria-label="Career highlights"></div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Profile image placeholder">
+          <div class="profile-frame">
+            <div class="profile-glow"></div>
+            <div class="profile-orbit orbit-one"></div>
+            <div class="profile-orbit orbit-two"></div>
+            <div class="profile-placeholder">
+              <img src="https://i.postimg.cc/k50Hj1x0/yassiiiin.jpg" alt="yassine el biad">
+            </div>
+          </div>
+          <div class="signal-panel">
+            <span data-i18n="hero.locationLabel">Based in</span>
+            <strong data-i18n="global.location">Casablanca, Morocco</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats-band" id="statistics" aria-label="Achievement statistics">
+      <div class="section-shell stats-grid" id="statsGrid"></div>
+    </section>
+
+    <section class="section about" id="about" data-section="about">
+      <div class="section-shell two-column">
+        <div class="section-heading reveal">
+          <span class="eyebrow" data-i18n="about.badge">Executive Profile</span>
+          <h2 data-i18n="about.heading">Disciplined, technical, and built for operational precision.</h2>
+        </div>
+        <div class="about-card reveal">
+          <div class="mini-profile">
+            <div class="mini-avatar">YE</div>
+            <div>
+              <h3>Yassine El Biad</h3>
+              <p data-i18n="about.cardRole">Quality, Data & Web Professional</p>
+            </div>
+          </div>
+          <dl class="facts" id="factsList"></dl>
+        </div>
+        <div class="about-content reveal">
+          <p data-i18n="about.bioOne">Yassine El Biad is a motivated and organized professional from Casablanca with hands-on experience in quality control, production data tracking, digital documentation, and office operations in industrial environments.</p>
+          <p data-i18n="about.bioTwo">His profile combines rigor, seriousness, accuracy, and curiosity for technology. Alongside industrial experience, he has training in applied accounting, web development, programming, and front-end fundamentals.</p>
+          <div class="strength-grid" id="strengthGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" data-section="experience">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <span class="eyebrow" data-i18n="experience.badge">Professional Timeline</span>
+          <h2 data-i18n="experience.heading">Industrial quality, production data, and operational documentation.</h2>
+        </div>
+        <div class="timeline" id="experienceTimeline"></div>
+      </div>
+    </section>
+
+    <section class="section skills" id="skills" data-section="skills">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <span class="eyebrow" data-i18n="skills.badge">Capabilities</span>
+          <h2 data-i18n="skills.heading">A practical skill stack across web, data, design, accounting, and teamwork.</h2>
+        </div>
+        <div class="skills-layout">
+          <div class="skills-panel reveal">
+            <h3 data-i18n="skills.technical">Technical Skills</h3>
+            <div id="technicalSkills"></div>
+          </div>
+          <div class="skills-panel reveal">
+            <h3 data-i18n="skills.professional">Professional Skills</h3>
+            <div class="tag-cloud" id="professionalSkills"></div>
+          </div>
+          <div class="skills-panel reveal">
+            <h3 data-i18n="skills.languages">Languages</h3>
+            <div id="languageSkills"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects" data-section="projects">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <span class="eyebrow" data-i18n="projects.badge">Project Showcase</span>
+          <h2 data-i18n="projects.heading">A premium showcase structure ready for future public case studies.</h2>
+          <p data-i18n="projects.note">The CV does not list public projects, so this section is prepared as a polished portfolio framework for upcoming work.</p>
+        </div>
+        <div class="project-grid" id="projectGrid"></div>
+      </div>
+    </section>
+
+    <section class="section education" id="education" data-section="education">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <span class="eyebrow" data-i18n="education.badge">Education & Training</span>
+          <h2 data-i18n="education.heading">A foundation in accounting, programming, web development, and business operations.</h2>
+        </div>
+        <div class="education-grid" id="educationGrid"></div>
+      </div>
+    </section>
+
+    <section class="section certifications" id="certifications" data-section="certifications">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <span class="eyebrow" data-i18n="certifications.badge">Credentials</span>
+          <h2 data-i18n="certifications.heading">Verified learning milestones from the CV.</h2>
+        </div>
+        <div class="cert-grid" id="certGrid"></div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" data-section="contact">
+      <div class="section-shell contact-shell">
+        <div class="section-heading reveal">
+          <span class="eyebrow" data-i18n="contact.badge">Direct Access</span>
+          <h2 data-i18n="contact.heading">Connect with Yassine directly.</h2>
+          <p data-i18n="contact.note">No form, no friction. Use the direct actions below from the CV information.</p>
+        </div>
+        <div class="contact-actions reveal" id="contactActions"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section-shell footer-inner">
+      <span>Yassine El Biad</span>
+      <span data-i18n="footer.line">Premium personal portfolio built from CV data.</span>
+    </div>
+  </footer>
+
+  <script>
+    const contact = {
+  email: "elbiadyassin25@gmail.com",
+  phone: "+212769145643",
+  displayPhone: "(+212) 769 145 643",
+  whatsapp: "https://wa.me/212769145643",
+  address: "AL AZHAR IM 36 NR 121 TR I4 SIDI BERNOUSSI CASABLANCA MOROCCO, Casablanca, Morocco",
+  maps: "https://www.google.com/maps/search/?api=1&query=AL%20AZHAR%20IM%2036%20NR%20121%20TR%20I4%20SIDI%20BERNOUSSI%20CASABLANCA%20MOROCCO"
+};
+
+const icons = {
+  email: '<svg viewBox="0 0 24 24"><path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.2V6.8Zm2.2-.6 5.8 5 5.8-5H6.2Zm11.6 2.4-4.9 4.2a1.4 1.4 0 0 1-1.8 0L6.2 8.6v8.6c0 .3.3.6.6.6h10.4c.3 0 .6-.3.6-.6V8.6Z"/></svg>',
+  phone: '<svg viewBox="0 0 24 24"><path d="M7.1 4h3.1l1.5 4.2-2 1.3c.8 1.7 2.1 3 3.8 3.8l1.3-2 4.2 1.5v3.1c0 1.7-1.4 3.1-3.1 3.1A10.9 10.9 0 0 1 5 8.1C5 5.7 5.7 4 7.1 4Z"/></svg>',
+  message: '<svg viewBox="0 0 24 24"><path d="M4 5.8A2.8 2.8 0 0 1 6.8 3h10.4A2.8 2.8 0 0 1 20 5.8v7.4a2.8 2.8 0 0 1-2.8 2.8H9l-4.4 4A1 1 0 0 1 3 19.2V5.8Zm3 1.7v2h10v-2H7Zm0 4v2h6v-2H7Z"/></svg>',
+  location: '<svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>',
+  link: '<svg viewBox="0 0 24 24"><path d="M8.5 12.8a4.8 4.8 0 0 1 0-6.8l2-2a4.8 4.8 0 1 1 6.8 6.8l-1 1-1.4-1.4 1-1a2.8 2.8 0 1 0-4-4l-2 2a2.8 2.8 0 0 0 0 4l1.2 1.2-1.4 1.4-1.2-1.2Zm7 5.2-2 2a4.8 4.8 0 0 1-6.8-6.8l1-1 1.4 1.4-1 1a2.8 2.8 0 0 0 4 4l2-2a2.8 2.8 0 0 0 0-4l-1.2-1.2 1.4-1.4 1.2 1.2a4.8 4.8 0 0 1 0 6.8Z"/></svg>',
+  code: '<svg viewBox="0 0 24 24"><path d="m8.7 16.6-5-4.6 5-4.6 1.4 1.5L6.7 12l3.4 3.1-1.4 1.5Zm6.6 0-1.4-1.5 3.4-3.1-3.4-3.1 1.4-1.5 5 4.6-5 4.6ZM11 19h-2l4-14h2l-4 14Z"/></svg>'
+};
+
+const translations = {
+  en: {
+    nav: { home: "Home", about: "About", experience: "Experience", skills: "Skills", projects: "Projects", education: "Education", certifications: "Certifications", contact: "Contact" },
+    global: { location: "Casablanca, Morocco" },
+    hero: {
+      badge: "Quality | Data | Web",
+      title: "Quality Controller, Data Entry Specialist & Junior Web Developer",
+      summary: "Motivated and organized professional with experience in industrial quality control, production tracking, accurate data entry, and foundational web programming.",
+      ctaEmail: "Email Yassine",
+      ctaWork: "Explore Profile",
+      photo: "Add Professional Photo",
+      locationLabel: "Based in",
+      metrics: [
+        { number: "2023", label: "Professional experience since" },
+        { number: "4", label: "CV-listed professional roles" },
+        { number: "5", label: "Diplomas, attestations, and certificates" }
+      ]
+    },
+    stats: [
+      { value: 1, suffix: "+", label: "Years of industrial and data experience" },
+      { value: 4, suffix: "", label: "Professional roles across quality and data" },
+      { value: 5, suffix: "", label: "Education and certification milestones" },
+      { value: 3, suffix: "", label: "Core tracks: quality, data, and web" }
+    ],
+    about: {
+      badge: "Executive Profile",
+      heading: "Disciplined, technical, and built for operational precision.",
+      cardRole: "Quality, Data & Web Professional",
+      bioOne: "Yassine El Biad is a motivated and organized professional from Casablanca with hands-on experience in quality control, production data tracking, digital documentation, and office operations in industrial environments.",
+      bioTwo: "His profile combines rigor, seriousness, accuracy, basic economics knowledge, and curiosity for technology. Alongside industrial experience, he has training in applied accounting, web development, programming, and front-end fundamentals.",
+      facts: [
+        ["Date of birth", "12 February 2004"],
+        ["Phone", contact.displayPhone],
+        ["Email", contact.email],
+        ["Address", contact.address],
+        ["Native language", "Arabic"],
+        ["Training focus", "Applied accounting, economics, web development, programming, and front-end development"]
+      ],
+      strengths: [
+        ["Operational precision", "Quality inspection, final product control, data validation, and anomaly correction."],
+        ["Digital organization", "Structured documentation, file management, dashboards, reports, and internal system updates."],
+        ["Technical curiosity", "Foundations in HTML, CSS, JavaScript, PHP, MySQL, WordPress, and office software."],
+        ["Professional reliability", "Teamwork, communication, time management, adaptability, initiative, and punctuality."]
+      ]
+    },
+    experience: {
+      badge: "Professional Timeline",
+      heading: "Industrial quality, production data, and operational documentation.",
+      items: [
+        {
+          role: "Product Quality Controller",
+          company: "Leoni Wiring Systems",
+          date: "15/12/2023 - 01/10/2024",
+          location: "Casablanca, Morocco",
+          bullets: [
+            "Performed final quality control on cable harnesses before shipment.",
+            "Carried out technical inspections to ensure conformity with specifications.",
+            "Packed and labeled finished products for delivery.",
+            "Reported defects and collaborated with quality teams to solve issues."
+          ]
+        },
+        {
+          role: "Data Entry Employee",
+          company: "Neo Data Production",
+          date: "03/10/2024 - 01/02/2025",
+          location: "Casablanca, Morocco",
+          bullets: [
+            "Entered and updated data in internal systems with high accuracy.",
+            "Managed digital files and maintained organized documentation.",
+            "Collaborated with team members to respect data processing deadlines."
+          ]
+        },
+        {
+          role: "Data Entry Agent",
+          company: "Ines Plastic Industry",
+          date: "Dates not specified in CV",
+          location: "Industrial production environment",
+          bullets: [
+            "Entered and recorded production data in internal systems.",
+            "Checked and validated entered data to ensure accuracy.",
+            "Archived and organized digital files related to production."
+          ]
+        },
+        {
+          role: "Data Entry Agent",
+          company: "Siera",
+          date: "Dates not specified in CV",
+          location: "Production data environment",
+          bullets: [
+            "Entered and processed daily production data in Microsoft Excel.",
+            "Created and updated dashboards and monitoring reports.",
+            "Checked data consistency and corrected detected anomalies."
+          ]
+        }
+      ]
+    },
+    skills: {
+      badge: "Capabilities",
+      heading: "A practical skill stack across web, data, design, accounting, and teamwork.",
+      technical: "Technical Skills",
+      professional: "Professional Skills",
+      languages: "Languages",
+      tech: [
+        ["Microsoft Word, Excel & PowerPoint", "Practical", 78],
+        ["Excel formulas & pivot tables", "Practical", 72],
+        ["HTML, CSS & JavaScript", "Foundational", 64],
+        ["PHP & MySQL", "Backend basics", 55],
+        ["WordPress CMS", "Foundational", 58],
+        ["SAGE accounting software", "Practical basics", 62],
+        ["Canva content design", "Practical", 70],
+        ["Adobe Photoshop", "Basic notions", 45],
+        ["Layout and visual balance", "Basic", 52],
+        ["Simple social media visuals", "Basic", 56],
+        ["Accounting entries processing", "Practical basics", 60],
+        ["Simple balance sheets and income statements", "Basic", 54],
+        ["Moroccan General Chart of Accounts", "Foundational", 52]
+      ],
+      pro: ["Oral and written communication", "Teamwork", "Time management", "Problem solving", "Organization", "Adaptability", "Critical and analytical thinking", "Initiative and autonomy", "Reliability and punctuality"],
+      langNote: "CEFR note from the CV: A1 and A2 are basic user levels, B1 and B2 are independent user levels, and C1 and C2 are experienced user levels.",
+      langs: [
+        { name: "Arabic", summary: "Native language", levels: ["Native"] },
+        { name: "English", summary: "CEFR profile from CV", levels: ["Listening B1", "Reading A2", "Spoken production A2", "Spoken interaction A2", "Writing B1"] },
+        { name: "French", summary: "CEFR profile from CV", levels: ["Listening B1", "Reading A2", "Spoken production A2", "Spoken interaction A2", "Writing B2"] }
+      ]
+    },
+    projects: {
+      badge: "Project Showcase",
+      heading: "A premium showcase structure ready for future public case studies.",
+      note: "The CV does not list public projects, so this section is prepared as a polished portfolio framework for upcoming work.",
+      image: "Future project image",
+      button: "Coming Soon",
+      cards: [
+        ["Production Data Dashboard", "A future case study space for Excel dashboards, production reports, validation workflows, and monitoring summaries.", ["Excel", "Dashboards", "Reporting"]],
+        ["Web Development Case Study", "A future slot for front-end work using HTML, CSS, JavaScript, WordPress, and structured page layouts.", ["HTML", "CSS", "JavaScript"]],
+        ["Accounting Workflow System", "A future project area for simple accounting records, SAGE workflows, balances, income statements, and Moroccan PCG knowledge.", ["SAGE", "Excel", "Accounting"]]
+      ]
+    },
+    education: {
+      badge: "Education & Training",
+      heading: "A foundation in accounting, programming, web development, and business operations.",
+      items: [
+        ["International Diploma in Applied Accounting", "Centre Atlantique de Formation in partnership with Smart International Academy, London", "Casablanca, Morocco", "www.smartintlacademy.org"],
+        ["International Diploma in Web Development and Programming", "Centre Atlantique de Formation in partnership with Smart International Academy, London", "Casablanca, Morocco", "www.smartintlacademy.org"],
+        ["Training Attestation - Practical Accounting with SAGE (6 months)", "Centre Atlantique de Formation", "14/07/2024 - Casablanca, Morocco", ""],
+        ["Training Attestation - Web Development and Programming", "Centre Atlantique de Formation", "27/12/2024 - Casablanca, Morocco", ""],
+        ["Course Certificate - Front-End Development", "Sololearn - Online Training Platform", "15/09/2024 - Online", "https://www.sololearn.com/"],
+        ["Secondary Studies - Baccalaureate not completed (Accounting Management)", "Lycée Qualifiant Ibn Mandour", "2021 - 2022 - Casablanca, Morocco - EQF Level 4", ""]
+      ]
+    },
+    certifications: {
+      badge: "Credentials",
+      heading: "Verified learning milestones from the CV.",
+      items: [
+        ["Applied Accounting Diploma", "International diploma with Smart International Academy partnership."],
+        ["Web Development & Programming Diploma", "International diploma focused on web and programming foundations."],
+        ["Practical Accounting with SAGE", "Six-month training attestation delivered by Centre Atlantique de Formation."],
+        ["Web Development & Programming Attestation", "Training attestation dated 27/12/2024."],
+        ["Front-End Development Certificate", "Sololearn online course certificate dated 15/09/2024."]
+      ]
+    },
+    contact: {
+      badge: "Direct Access",
+      heading: "Connect with Yassine directly.",
+      note: "No form, no friction. Use the direct actions below from the CV information.",
+      unavailable: "Not provided in CV",
+      actions: [
+        ["Email", contact.email, `mailto:${contact.email}`, "email"],
+        ["Phone", contact.displayPhone, `tel:${contact.phone}`, "phone"],
+        ["WhatsApp", contact.displayPhone, contact.whatsapp, "message"],
+        ["Address", "Open Casablanca location", contact.maps, "location"],
+        ["LinkedIn", "Not provided in CV", "", "link"],
+        ["GitHub", "Not provided in CV", "", "code"],
+        ["Portfolio Links", "Not provided in CV", "", "link"]
+      ]
+    },
+    footer: { line: "Premium personal portfolio built from CV data." }
+  },
+  fr: {
+    nav: { home: "Accueil", about: "À propos", experience: "Expérience", skills: "Compétences", projects: "Projets", education: "Formation", certifications: "Certifications", contact: "Contact" },
+    global: { location: "Casablanca, Maroc" },
+    hero: {
+      badge: "Qualité | Données | Web",
+      title: "Contrôleur qualité, agent de saisie de données & développeur web junior",
+      summary: "Professionnel motivé et organisé avec une expérience en contrôle qualité industriel, suivi de production, saisie de données précise et bases en programmation web.",
+      ctaEmail: "Envoyer un email",
+      ctaWork: "Explorer le profil",
+      photo: "Ajouter une photo professionnelle",
+      locationLabel: "Basé à",
+      metrics: [
+        { number: "2023", label: "Début de l'expérience professionnelle" },
+        { number: "4", label: "Postes professionnels listés dans le CV" },
+        { number: "5", label: "Diplômes, attestations et certificats" }
+      ]
+    },
+    stats: [
+      { value: 1, suffix: "+", label: "Années d'expérience industrielle et data" },
+      { value: 4, suffix: "", label: "Postes en qualité et saisie de données" },
+      { value: 5, suffix: "", label: "Étapes de formation et certification" },
+      { value: 3, suffix: "", label: "Axes clés: qualité, données et web" }
+    ],
+    about: {
+      badge: "Profil exécutif",
+      heading: "Discipliné, technique, et orienté précision opérationnelle.",
+      cardRole: "Professionnel qualité, données & web",
+      bioOne: "Yassine El Biad est un professionnel motivé et organisé basé à Casablanca, avec une expérience concrète en contrôle qualité, suivi des données de production, documentation numérique et opérations bureautiques dans des environnements industriels.",
+      bioTwo: "Son profil réunit rigueur, sérieux, précision, connaissances de base en économie et curiosité pour la technologie. En parallèle de son expérience industrielle, il possède des formations en comptabilité appliquée, développement web, programmation et bases front-end.",
+      facts: [
+        ["Date de naissance", "12 février 2004"],
+        ["Téléphone", contact.displayPhone],
+        ["Email", contact.email],
+        ["Adresse", contact.address],
+        ["Langue maternelle", "Arabe"],
+        ["Axes de formation", "Comptabilité appliquée, économie, développement web, programmation et front-end"]
+      ],
+      strengths: [
+        ["Précision opérationnelle", "Inspection qualité, contrôle final, validation des données et correction des anomalies."],
+        ["Organisation numérique", "Documentation structurée, gestion de fichiers, tableaux de bord, rapports et systèmes internes."],
+        ["Curiosité technique", "Bases en HTML, CSS, JavaScript, PHP, MySQL, WordPress et outils bureautiques."],
+        ["Fiabilité professionnelle", "Travail en équipe, communication, gestion du temps, adaptation, initiative et ponctualité."]
+      ]
+    },
+    experience: {
+      badge: "Parcours professionnel",
+      heading: "Qualité industrielle, données de production et documentation opérationnelle.",
+      items: [
+        { role: "Contrôleur qualité de produits", company: "Leoni Wiring Systems", date: "15/12/2023 - 01/10/2024", location: "Casablanca, Maroc", bullets: ["Effectué le contrôle qualité final des faisceaux de câbles avant expédition.", "Réalisé des inspections techniques pour garantir la conformité aux spécifications.", "Emballé et étiqueté les produits finis pour la livraison.", "Signalé les défauts et collaboré avec les équipes qualité pour résoudre les problèmes."] },
+        { role: "Employé de saisie de données", company: "Neo Data Production", date: "03/10/2024 - 01/02/2025", location: "Casablanca, Maroc", bullets: ["Saisi et mis à jour des données dans les systèmes internes avec une grande précision.", "Géré les fichiers numériques et maintenu une documentation organisée.", "Collaboré avec les membres de l'équipe pour respecter les délais de traitement des données."] },
+        { role: "Agent de saisie de données", company: "Ines Plastic Industry", date: "Dates non précisées dans le CV", location: "Environnement de production industrielle", bullets: ["Saisie et enregistrement des données de production dans les systèmes internes.", "Vérification et validation des données saisies pour assurer leur exactitude.", "Archivage et organisation des fichiers numériques liés à la production."] },
+        { role: "Agent de saisie de données", company: "Siera", date: "Dates non précisées dans le CV", location: "Environnement de données de production", bullets: ["Saisie et traitement des données de production quotidienne sur Microsoft Excel.", "Élaboration et mise à jour des tableaux de bord et rapports de suivi.", "Contrôle de la cohérence des données saisies et correction des anomalies détectées."] }
+      ]
+    },
+    skills: {
+      badge: "Capacités",
+      heading: "Un ensemble pratique de compétences en web, données, design, comptabilité et collaboration.",
+      technical: "Compétences techniques",
+      professional: "Compétences professionnelles",
+      languages: "Langues",
+      tech: [["Microsoft Word, Excel & PowerPoint", "Pratique", 78], ["Formules Excel & tableaux croisés", "Pratique", 72], ["HTML, CSS & JavaScript", "Bases", 64], ["PHP & MySQL", "Bases backend", 55], ["WordPress CMS", "Bases", 58], ["Logiciel SAGE", "Bases pratiques", 62], ["Canva", "Pratique", 70], ["Adobe Photoshop", "Notions de base", 45], ["Mise en page et équilibre visuel", "Base", 52], ["Visuels simples pour réseaux sociaux", "Base", 56], ["Saisie et traitement des écritures comptables", "Bases pratiques", 60], ["Bilans et comptes de résultat simples", "Base", 54], ["Plan Comptable Général marocain", "Bases", 52]],
+      pro: ["Communication orale et écrite", "Travail en équipe", "Gestion du temps", "Résolution de problèmes", "Sens de l'organisation", "Capacité d'adaptation", "Esprit critique et analytique", "Initiative et autonomie", "Fiabilité et ponctualité"],
+      langNote: "Note CECR du CV: A1 et A2 correspondent à un utilisateur de base, B1 et B2 à un utilisateur indépendant, C1 et C2 à un utilisateur expérimenté.",
+      langs: [{ name: "Arabe", summary: "Langue maternelle", levels: ["Natif"] }, { name: "Anglais", summary: "Profil CECR du CV", levels: ["Compréhension orale B1", "Compréhension écrite A2", "Expression orale A2", "Interaction orale A2", "Écrit B1"] }, { name: "Français", summary: "Profil CECR du CV", levels: ["Compréhension orale B1", "Compréhension écrite A2", "Expression orale A2", "Interaction orale A2", "Écrit B2"] }]
+    },
+    projects: {
+      badge: "Vitrine projets",
+      heading: "Une structure premium prête pour de futurs cas publics.",
+      note: "Le CV ne liste pas de projets publics, cette section est donc préparée comme un cadre de portfolio pour les travaux à venir.",
+      image: "Image de futur projet",
+      button: "Bientôt disponible",
+      cards: [["Tableau de bord production", "Espace futur pour tableaux de bord Excel, rapports de production, validation et suivi.", ["Excel", "Tableaux de bord", "Reporting"]], ["Cas d'étude web", "Emplacement futur pour travaux front-end avec HTML, CSS, JavaScript, WordPress et mise en page.", ["HTML", "CSS", "JavaScript"]], ["Workflow comptable", "Zone future pour écritures simples, SAGE, bilans, comptes de résultat et PCG marocain.", ["SAGE", "Excel", "Comptabilité"]]]
+    },
+    education: {
+      badge: "Éducation & formation",
+      heading: "Une base en comptabilité, programmation, développement web et opérations business.",
+      items: [["Diplôme international en comptabilité appliquée", "Centre Atlantique de Formation en partenariat avec Smart International Academy, London", "Casablanca, Maroc", "www.smartintlacademy.org"], ["Diplôme international en développement web et programmation", "Centre Atlantique de Formation en partenariat avec Smart International Academy, London", "Casablanca, Maroc", "www.smartintlacademy.org"], ["Attestation de formation - Comptabilité pratique avec SAGE (6 mois)", "Centre Atlantique de Formation", "14/07/2024 - Casablanca, Maroc", ""], ["Attestation de formation - Développement web et programmation", "Centre Atlantique de Formation", "27/12/2024 - Casablanca, Maroc", ""], ["Course Certificate - Front-End Development", "Sololearn - Online Training Platform", "15/09/2024 - Online", "https://www.sololearn.com/"], ["Études secondaires - Baccalauréat non terminé (gestion comptable)", "Lycée Qualifiant Ibn Mandour", "2021 - 2022 - Casablanca, Maroc - Niveau CEC 4", ""]]
+    },
+    certifications: {
+      badge: "Certifications",
+      heading: "Étapes d'apprentissage vérifiées dans le CV.",
+      items: [["Diplôme en comptabilité appliquée", "Diplôme international avec partenariat Smart International Academy."], ["Diplôme en développement web & programmation", "Diplôme international axé sur les bases du web et de la programmation."], ["Comptabilité pratique avec SAGE", "Attestation de formation de six mois du Centre Atlantique de Formation."], ["Attestation développement web & programmation", "Attestation de formation datée du 27/12/2024."], ["Certificat Front-End Development", "Certificat Sololearn daté du 15/09/2024."]]
+    },
+    contact: {
+      badge: "Accès direct",
+      heading: "Contacter Yassine directement.",
+      note: "Aucun formulaire. Utilisez les actions directes issues du CV.",
+      unavailable: "Non fourni dans le CV",
+      actions: [["Email", contact.email, `mailto:${contact.email}`, "email"], ["Téléphone", contact.displayPhone, `tel:${contact.phone}`, "phone"], ["WhatsApp", contact.displayPhone, contact.whatsapp, "message"], ["Adresse", "Ouvrir l'adresse à Casablanca", contact.maps, "location"], ["LinkedIn", "Non fourni dans le CV", "", "link"], ["GitHub", "Non fourni dans le CV", "", "code"], ["Liens portfolio", "Non fourni dans le CV", "", "link"]]
+    },
+    footer: { line: "Portfolio personnel premium créé à partir des données du CV." }
+  },
+  es: {
+    nav: { home: "Inicio", about: "Perfil", experience: "Experiencia", skills: "Habilidades", projects: "Proyectos", education: "Formación", certifications: "Certificaciones", contact: "Contacto" },
+    global: { location: "Casablanca, Marruecos" },
+    hero: {
+      badge: "Calidad | Datos | Web",
+      title: "Controlador de calidad, especialista en entrada de datos y desarrollador web junior",
+      summary: "Profesional motivado y organizado con experiencia en control de calidad industrial, seguimiento de producción, entrada precisa de datos y bases de programación web.",
+      ctaEmail: "Enviar email",
+      ctaWork: "Explorar perfil",
+      photo: "Añadir foto profesional",
+      locationLabel: "Ubicado en",
+      metrics: [{ number: "2023", label: "Experiencia profesional desde" }, { number: "4", label: "Roles profesionales en el CV" }, { number: "5", label: "Diplomas, constancias y certificados" }]
+    },
+    stats: [{ value: 1, suffix: "+", label: "Años de experiencia industrial y de datos" }, { value: 4, suffix: "", label: "Roles en calidad y datos" }, { value: 5, suffix: "", label: "Hitos de formación y certificación" }, { value: 3, suffix: "", label: "Áreas clave: calidad, datos y web" }],
+    about: {
+      badge: "Perfil ejecutivo",
+      heading: "Disciplinado, técnico y orientado a la precisión operativa.",
+      cardRole: "Profesional de calidad, datos y web",
+      bioOne: "Yassine El Biad es un profesional motivado y organizado de Casablanca, con experiencia práctica en control de calidad, seguimiento de datos de producción, documentación digital y operaciones de oficina en entornos industriales.",
+      bioTwo: "Su perfil combina rigor, seriedad, precisión, conocimientos básicos de economía y curiosidad por la tecnología. Además de su experiencia industrial, cuenta con formación en contabilidad aplicada, desarrollo web, programación y fundamentos front-end.",
+      facts: [["Fecha de nacimiento", "12 de febrero de 2004"], ["Teléfono", contact.displayPhone], ["Email", contact.email], ["Dirección", contact.address], ["Lengua materna", "Árabe"], ["Enfoque formativo", "Contabilidad aplicada, economía, desarrollo web, programación y front-end"]],
+      strengths: [["Precisión operativa", "Inspección de calidad, control final, validación de datos y corrección de anomalías."], ["Organización digital", "Documentación estructurada, gestión de archivos, paneles, informes y sistemas internos."], ["Curiosidad técnica", "Bases en HTML, CSS, JavaScript, PHP, MySQL, WordPress y ofimática."], ["Fiabilidad profesional", "Trabajo en equipo, comunicación, gestión del tiempo, adaptación, iniciativa y puntualidad."]]
+    },
+    experience: {
+      badge: "Trayectoria profesional",
+      heading: "Calidad industrial, datos de producción y documentación operativa.",
+      items: [
+        { role: "Controlador de calidad de productos", company: "Leoni Wiring Systems", date: "15/12/2023 - 01/10/2024", location: "Casablanca, Marruecos", bullets: ["Realizó control final de calidad de arneses de cables antes del envío.", "Ejecutó inspecciones técnicas para garantizar la conformidad con las especificaciones.", "Embaló y etiquetó productos terminados para entrega.", "Reportó defectos y colaboró con equipos de calidad para resolver problemas."] },
+        { role: "Empleado de entrada de datos", company: "Neo Data Production", date: "03/10/2024 - 01/02/2025", location: "Casablanca, Marruecos", bullets: ["Ingresó y actualizó datos en sistemas internos con alta precisión.", "Gestionó archivos digitales y mantuvo documentación organizada.", "Colaboró con el equipo para cumplir plazos de procesamiento de datos."] },
+        { role: "Agente de entrada de datos", company: "Ines Plastic Industry", date: "Fechas no especificadas en el CV", location: "Entorno de producción industrial", bullets: ["Ingresó y registró datos de producción en sistemas internos.", "Verificó y validó datos ingresados para asegurar exactitud.", "Archivó y organizó archivos digitales relacionados con la producción."] },
+        { role: "Agente de entrada de datos", company: "Siera", date: "Fechas no especificadas en el CV", location: "Entorno de datos de producción", bullets: ["Ingresó y procesó datos diarios de producción en Microsoft Excel.", "Creó y actualizó paneles e informes de seguimiento.", "Controló la coherencia de los datos y corrigió anomalías detectadas."] }
+      ]
+    },
+    skills: {
+      badge: "Capacidades",
+      heading: "Un conjunto práctico de habilidades en web, datos, diseño, contabilidad y colaboración.",
+      technical: "Habilidades técnicas",
+      professional: "Habilidades profesionales",
+      languages: "Idiomas",
+      tech: [["Microsoft Word, Excel y PowerPoint", "Práctico", 78], ["Fórmulas Excel y tablas dinámicas", "Práctico", 72], ["HTML, CSS y JavaScript", "Fundamental", 64], ["PHP y MySQL", "Bases backend", 55], ["WordPress CMS", "Fundamental", 58], ["Software contable SAGE", "Bases prácticas", 62], ["Diseño con Canva", "Práctico", 70], ["Adobe Photoshop", "Nociones básicas", 45], ["Maquetación y equilibrio visual", "Básico", 52], ["Visuales simples para redes sociales", "Básico", 56], ["Procesamiento de asientos contables", "Bases prácticas", 60], ["Balances y cuentas de resultado simples", "Básico", 54], ["Plan General Contable marroquí", "Fundamental", 52]],
+      pro: ["Comunicación oral y escrita", "Trabajo en equipo", "Gestión del tiempo", "Resolución de problemas", "Organización", "Adaptabilidad", "Pensamiento crítico y analítico", "Iniciativa y autonomía", "Fiabilidad y puntualidad"],
+      langNote: "Nota MCER del CV: A1 y A2 son niveles de usuario básico, B1 y B2 de usuario independiente, y C1 y C2 de usuario experimentado.",
+      langs: [{ name: "Árabe", summary: "Lengua materna", levels: ["Nativo"] }, { name: "Inglés", summary: "Perfil MCER del CV", levels: ["Comprensión oral B1", "Lectura A2", "Expresión oral A2", "Interacción oral A2", "Escritura B1"] }, { name: "Francés", summary: "Perfil MCER del CV", levels: ["Comprensión oral B1", "Lectura A2", "Expresión oral A2", "Interacción oral A2", "Escritura B2"] }]
+    },
+    projects: {
+      badge: "Vitrina de proyectos",
+      heading: "Una estructura premium lista para futuros casos públicos.",
+      note: "El CV no incluye proyectos públicos, por eso esta sección queda preparada como marco elegante para trabajos próximos.",
+      image: "Imagen de futuro proyecto",
+      button: "Próximamente",
+      cards: [["Panel de datos de producción", "Espacio futuro para paneles Excel, informes de producción, validación y seguimiento.", ["Excel", "Paneles", "Reporting"]], ["Caso de desarrollo web", "Espacio futuro para trabajo front-end con HTML, CSS, JavaScript, WordPress y maquetación.", ["HTML", "CSS", "JavaScript"]], ["Flujo de trabajo contable", "Área futura para registros simples, SAGE, balances, resultados y PCG marroquí.", ["SAGE", "Excel", "Contabilidad"]]]
+    },
+    education: {
+      badge: "Educación y formación",
+      heading: "Base en contabilidad, programación, desarrollo web y operaciones empresariales.",
+      items: [["Diploma internacional en contabilidad aplicada", "Centre Atlantique de Formation en colaboración con Smart International Academy, London", "Casablanca, Marruecos", "www.smartintlacademy.org"], ["Diploma internacional en desarrollo web y programación", "Centre Atlantique de Formation en colaboración con Smart International Academy, London", "Casablanca, Marruecos", "www.smartintlacademy.org"], ["Constancia de formación - Contabilidad práctica con SAGE (6 meses)", "Centre Atlantique de Formation", "14/07/2024 - Casablanca, Marruecos", ""], ["Constancia de formación - Desarrollo web y programación", "Centre Atlantique de Formation", "27/12/2024 - Casablanca, Marruecos", ""], ["Certificado de curso - Front-End Development", "Sololearn - Online Training Platform", "15/09/2024 - Online", "https://www.sololearn.com/"], ["Estudios secundarios - Bachillerato no terminado (gestión contable)", "Lycée Qualifiant Ibn Mandour", "2021 - 2022 - Casablanca, Marruecos - Nivel EQF 4", ""]]
+    },
+    certifications: {
+      badge: "Credenciales",
+      heading: "Hitos de aprendizaje verificados desde el CV.",
+      items: [["Diploma en contabilidad aplicada", "Diploma internacional con colaboración de Smart International Academy."], ["Diploma en desarrollo web y programación", "Diploma internacional centrado en fundamentos web y programación."], ["Contabilidad práctica con SAGE", "Constancia de formación de seis meses del Centre Atlantique de Formation."], ["Constancia de desarrollo web y programación", "Constancia fechada el 27/12/2024."], ["Certificado Front-End Development", "Certificado online de Sololearn fechado el 15/09/2024."]]
+    },
+    contact: {
+      badge: "Acceso directo",
+      heading: "Conecta directamente con Yassine.",
+      note: "Sin formulario. Usa las acciones directas basadas en la información del CV.",
+      unavailable: "No proporcionado en el CV",
+      actions: [["Email", contact.email, `mailto:${contact.email}`, "email"], ["Teléfono", contact.displayPhone, `tel:${contact.phone}`, "phone"], ["WhatsApp", contact.displayPhone, contact.whatsapp, "message"], ["Dirección", "Abrir ubicación en Casablanca", contact.maps, "location"], ["LinkedIn", "No proporcionado en el CV", "", "link"], ["GitHub", "No proporcionado en el CV", "", "code"], ["Enlaces de portafolio", "No proporcionado en el CV", "", "link"]]
+    },
+    footer: { line: "Portafolio personal premium creado desde los datos del CV." }
+  },
+  ar: {
+    nav: { home: "الرئيسية", about: "نبذة", experience: "الخبرة", skills: "المهارات", projects: "المشاريع", education: "التعليم", certifications: "الشهادات", contact: "التواصل" },
+    global: { location: "الدار البيضاء، المغرب" },
+    hero: {
+      badge: "الجودة | البيانات | الويب",
+      title: "مراقب جودة، متخصص إدخال بيانات ومطور ويب مبتدئ",
+      summary: "محترف منظم ومتحمس لديه خبرة في مراقبة الجودة الصناعية، متابعة الإنتاج، إدخال البيانات بدقة، وأساسيات برمجة الويب.",
+      ctaEmail: "راسل ياسين",
+      ctaWork: "استكشف الملف",
+      photo: "أضف صورة مهنية",
+      locationLabel: "مقيم في",
+      metrics: [{ number: "2023", label: "بداية الخبرة المهنية" }, { number: "4", label: "أدوار مهنية مذكورة في السيرة" }, { number: "5", label: "دبلومات وشهادات وتكوينات" }]
+    },
+    stats: [{ value: 1, suffix: "+", label: "سنوات خبرة في الصناعة والبيانات" }, { value: 4, suffix: "", label: "أدوار في الجودة وإدخال البيانات" }, { value: 5, suffix: "", label: "محطات تعليمية وشهادات" }, { value: 3, suffix: "", label: "محاور رئيسية: الجودة، البيانات والويب" }],
+    about: {
+      badge: "الملف التنفيذي",
+      heading: "منضبط، تقني، وموجه نحو الدقة التشغيلية.",
+      cardRole: "محترف في الجودة والبيانات والويب",
+      bioOne: "ياسين البياض محترف من الدار البيضاء، منظم ومتحمس، يمتلك خبرة عملية في مراقبة الجودة، متابعة بيانات الإنتاج، التوثيق الرقمي والعمليات المكتبية داخل بيئات صناعية.",
+      bioTwo: "يجمع ملفه بين الجدية والدقة والمعرفة الأساسية بالاقتصاد والفضول التقني. إلى جانب الخبرة الصناعية، لديه تكوين في المحاسبة التطبيقية، تطوير الويب، البرمجة وأساسيات الواجهة الأمامية.",
+      facts: [["تاريخ الميلاد", "12 فبراير 2004"], ["الهاتف", contact.displayPhone], ["البريد الإلكتروني", contact.email], ["العنوان", contact.address], ["اللغة الأم", "العربية"], ["محاور التكوين", "المحاسبة التطبيقية، الاقتصاد، تطوير الويب، البرمجة والواجهة الأمامية"]],
+      strengths: [["الدقة التشغيلية", "تفتيش الجودة، المراقبة النهائية، التحقق من البيانات وتصحيح الأخطاء."], ["التنظيم الرقمي", "توثيق منظم، إدارة الملفات، لوحات متابعة، تقارير وتحديث الأنظمة الداخلية."], ["فضول تقني", "أساسيات HTML وCSS وJavaScript وPHP وMySQL وWordPress وأدوات المكتب."], ["اعتمادية مهنية", "العمل الجماعي، التواصل، إدارة الوقت، التكيف، المبادرة والالتزام بالمواعيد."]]
+    },
+    experience: {
+      badge: "المسار المهني",
+      heading: "جودة صناعية، بيانات إنتاج، وتوثيق تشغيلي.",
+      items: [
+        { role: "مراقب جودة المنتجات", company: "Leoni Wiring Systems", date: "15/12/2023 - 01/10/2024", location: "الدار البيضاء، المغرب", bullets: ["تنفيذ المراقبة النهائية لجودة ضفائر الأسلاك قبل الشحن.", "إجراء فحوصات تقنية لضمان المطابقة للمواصفات.", "تغليف ووضع ملصقات على المنتجات النهائية للتسليم.", "الإبلاغ عن العيوب والتعاون مع فرق الجودة لحل المشاكل."] },
+        { role: "موظف إدخال بيانات", company: "Neo Data Production", date: "03/10/2024 - 01/02/2025", location: "الدار البيضاء، المغرب", bullets: ["إدخال وتحديث البيانات في الأنظمة الداخلية بدقة عالية.", "إدارة الملفات الرقمية والحفاظ على توثيق منظم.", "التعاون مع أعضاء الفريق لاحترام آجال معالجة البيانات."] },
+        { role: "وكيل إدخال بيانات", company: "Ines Plastic Industry", date: "تواريخ غير محددة في السيرة", location: "بيئة إنتاج صناعي", bullets: ["إدخال وتسجيل بيانات الإنتاج في الأنظمة الداخلية.", "التحقق من البيانات المدخلة لضمان دقتها.", "أرشفة وتنظيم الملفات الرقمية المرتبطة بالإنتاج."] },
+        { role: "وكيل إدخال بيانات", company: "Siera", date: "تواريخ غير محددة في السيرة", location: "بيئة بيانات الإنتاج", bullets: ["إدخال ومعالجة بيانات الإنتاج اليومية على Microsoft Excel.", "إعداد وتحديث لوحات المتابعة والتقارير.", "مراقبة اتساق البيانات وتصحيح الأخطاء المكتشفة."] }
+      ]
+    },
+    skills: {
+      badge: "القدرات",
+      heading: "مجموعة مهارات عملية في الويب، البيانات، التصميم، المحاسبة والعمل الجماعي.",
+      technical: "المهارات التقنية",
+      professional: "المهارات المهنية",
+      languages: "اللغات",
+      tech: [["Microsoft Word وExcel وPowerPoint", "عملي", 78], ["معادلات Excel والجداول المحورية", "عملي", 72], ["HTML وCSS وJavaScript", "أساسيات", 64], ["PHP وMySQL", "أساسيات خلفية", 55], ["WordPress CMS", "أساسيات", 58], ["برنامج SAGE للمحاسبة", "أساسيات عملية", 62], ["تصميم المحتوى عبر Canva", "عملي", 70], ["Adobe Photoshop", "مفاهيم أساسية", 45], ["التخطيط والتوازن البصري", "أساسي", 52], ["تصاميم بسيطة للشبكات الاجتماعية", "أساسي", 56], ["إدخال ومعالجة القيود المحاسبية", "أساسيات عملية", 60], ["ميزانيات وحسابات نتيجة بسيطة", "أساسي", 54], ["المخطط المحاسبي المغربي العام", "أساسيات", 52]],
+      pro: ["التواصل الشفهي والكتابي", "العمل الجماعي", "إدارة الوقت", "حل المشاكل", "التنظيم", "القدرة على التكيف", "التفكير النقدي والتحليلي", "المبادرة والاستقلالية", "الموثوقية والالتزام بالمواعيد"],
+      langNote: "ملاحظة CEFR من السيرة: A1 وA2 لمستخدم أساسي، B1 وB2 لمستخدم مستقل، وC1 وC2 لمستخدم متمرس.",
+      langs: [{ name: "العربية", summary: "اللغة الأم", levels: ["أم"] }, { name: "الإنجليزية", summary: "مستويات CEFR من السيرة", levels: ["استماع B1", "قراءة A2", "تعبير شفهي A2", "تفاعل شفهي A2", "كتابة B1"] }, { name: "الفرنسية", summary: "مستويات CEFR من السيرة", levels: ["استماع B1", "قراءة A2", "تعبير شفهي A2", "تفاعل شفهي A2", "كتابة B2"] }]
+    },
+    projects: {
+      badge: "عرض المشاريع",
+      heading: "هيكل فاخر جاهز لدراسات حالة مستقبلية.",
+      note: "لا تحتوي السيرة على مشاريع عامة، لذلك تم تجهيز هذا القسم كإطار احترافي للأعمال القادمة.",
+      image: "صورة مشروع مستقبلية",
+      button: "قريبا",
+      cards: [["لوحة بيانات الإنتاج", "مساحة مستقبلية للوحات Excel، تقارير الإنتاج، التحقق والمتابعة.", ["Excel", "لوحات متابعة", "تقارير"]], ["دراسة حالة ويب", "مساحة مستقبلية لأعمال الواجهة الأمامية باستخدام HTML وCSS وJavaScript وWordPress.", ["HTML", "CSS", "JavaScript"]], ["نظام سير محاسبي", "منطقة مستقبلية للسجلات البسيطة، SAGE، الميزانيات، النتائج والمعرفة بالمخطط المحاسبي المغربي.", ["SAGE", "Excel", "محاسبة"]]]
+    },
+    education: {
+      badge: "التعليم والتكوين",
+      heading: "أساس في المحاسبة، البرمجة، تطوير الويب والعمليات التجارية.",
+      items: [["دبلوم دولي في المحاسبة التطبيقية", "Centre Atlantique de Formation بشراكة مع Smart International Academy, London", "الدار البيضاء، المغرب", "www.smartintlacademy.org"], ["دبلوم دولي في تطوير الويب والبرمجة", "Centre Atlantique de Formation بشراكة مع Smart International Academy, London", "الدار البيضاء، المغرب", "www.smartintlacademy.org"], ["شهادة تكوين - المحاسبة العملية مع SAGE (6 أشهر)", "Centre Atlantique de Formation", "14/07/2024 - الدار البيضاء، المغرب", ""], ["شهادة تكوين - تطوير الويب والبرمجة", "Centre Atlantique de Formation", "27/12/2024 - الدار البيضاء، المغرب", ""], ["شهادة دورة - Front-End Development", "Sololearn - Online Training Platform", "15/09/2024 - Online", "https://www.sololearn.com/"], ["دراسات ثانوية - باكالوريا غير مكتملة (تسيير محاسبي)", "Lycée Qualifiant Ibn Mandour", "2021 - 2022 - الدار البيضاء، المغرب - مستوى CEC 4", ""]]
+    },
+    certifications: {
+      badge: "الشهادات",
+      heading: "محطات تعلم موثقة من السيرة الذاتية.",
+      items: [["دبلوم المحاسبة التطبيقية", "دبلوم دولي بشراكة Smart International Academy."], ["دبلوم تطوير الويب والبرمجة", "دبلوم دولي يركز على أساسيات الويب والبرمجة."], ["المحاسبة العملية مع SAGE", "شهادة تكوين لمدة ستة أشهر من Centre Atlantique de Formation."], ["شهادة تطوير الويب والبرمجة", "شهادة تكوين بتاريخ 27/12/2024."], ["شهادة Front-End Development", "شهادة Sololearn عبر الإنترنت بتاريخ 15/09/2024."]]
+    },
+    contact: {
+      badge: "وصول مباشر",
+      heading: "تواصل مع ياسين مباشرة.",
+      note: "بدون نموذج. استخدم الإجراءات المباشرة المعتمدة على معلومات السيرة.",
+      unavailable: "غير مذكور في السيرة",
+      actions: [["البريد الإلكتروني", contact.email, `mailto:${contact.email}`, "email"], ["الهاتف", contact.displayPhone, `tel:${contact.phone}`, "phone"], ["WhatsApp", contact.displayPhone, contact.whatsapp, "message"], ["العنوان", "فتح موقع الدار البيضاء", contact.maps, "location"], ["LinkedIn", "غير مذكور في السيرة", "", "link"], ["GitHub", "غير مذكور في السيرة", "", "code"], ["روابط المحفظة", "غير مذكور في السيرة", "", "link"]]
+    },
+    footer: { line: "محفظة شخصية فاخرة مبنية من بيانات السيرة الذاتية." }
+  }
+};
+
+let currentLang = "en";
+let hasAnimatedCounters = false;
+
+const select = (selector, scope = document) => scope.querySelector(selector);
+const selectAll = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+
+function getNestedValue(path, data) {
+  return path.split(".").reduce((value, key) => (value ? value[key] : undefined), data);
+}
+
+function applyStaticText(data) {
+  selectAll("[data-i18n]").forEach((node) => {
+    const value = getNestedValue(node.dataset.i18n, data);
+    if (typeof value === "string") {
+      node.textContent = value;
+    }
+  });
+}
+
+function renderHeroMetrics(data) {
+  select("#heroMetrics").innerHTML = data.hero.metrics.map((item) => `
+    <article class="metric-card reveal">
+      <strong>${item.number}</strong>
+      <span>${item.label}</span>
+    </article>
+  `).join("");
+}
+
+function renderStats(data) {
+  select("#statsGrid").innerHTML = data.stats.map((item) => `
+    <article class="stat-card reveal">
+      <strong class="stat-number" data-count="${item.value}" data-suffix="${item.suffix}">0${item.suffix}</strong>
+      <p>${item.label}</p>
+    </article>
+  `).join("");
+  hasAnimatedCounters = false;
+}
+
+function renderFacts(data) {
+  select("#factsList").innerHTML = data.about.facts.map(([label, value]) => `
+    <div class="fact">
+      <dt class="fact-label">${label}</dt>
+      <dd class="fact-value">${value}</dd>
+    </div>
+  `).join("");
+}
+
+function renderStrengths(data) {
+  select("#strengthGrid").innerHTML = data.about.strengths.map(([title, copy]) => `
+    <article class="strength">
+      <strong>${title}</strong>
+      <span>${copy}</span>
+    </article>
+  `).join("");
+}
+
+function renderExperience(data) {
+  select("#experienceTimeline").innerHTML = data.experience.items.map((item) => `
+    <article class="timeline-card reveal">
+      <span class="timeline-dot" aria-hidden="true"></span>
+      <div class="timeline-content">
+        <h3>${item.role}</h3>
+        <div class="timeline-meta">
+          <span>${item.company}</span>
+          <span>${item.date}</span>
+          <span>${item.location}</span>
+        </div>
+        <ul>${item.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderSkills(data) {
+  select("#technicalSkills").innerHTML = data.skills.tech.map(([name, level, percent]) => `
+    <div class="skill-row">
+      <div class="skill-top">
+        <span class="skill-name">${name}</span>
+        <span class="skill-level">${level}</span>
+      </div>
+      <div class="skill-track"><span class="skill-fill" data-fill="${percent}"></span></div>
+    </div>
+  `).join("");
+
+  select("#professionalSkills").innerHTML = data.skills.pro.map((skill) => `<span class="tag">${skill}</span>`).join("");
+
+  select("#languageSkills").innerHTML = `${data.skills.langs.map((language) => `
+    <div class="language-row">
+      <strong>${language.name}</strong>
+      <span class="skill-level">${language.summary}</span>
+      <div class="level-grid">${language.levels.map((level) => `<span class="level-chip">${level}</span>`).join("")}</div>
+    </div>
+  `).join("")}<p class="language-note">${data.skills.langNote}</p>`;
+}
+
+function renderProjects(data) {
+  select("#projectGrid").innerHTML = data.projects.cards.map(([title, description, techs]) => `
+    <article class="project-card reveal">
+      <div class="project-media"><span>${data.projects.image}</span></div>
+      <div class="project-body">
+        <span class="card-meta">${data.projects.button}</span>
+        <h3>${title}</h3>
+        <p>${description}</p>
+        <div class="tech-list">${techs.map((tech) => `<span>${tech}</span>`).join("")}</div>
+        <span class="btn btn-ghost project-button">${data.projects.button}</span>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderEducation(data) {
+  select("#educationGrid").innerHTML = data.education.items.map(([title, org, meta, link]) => `
+    <article class="education-card reveal">
+      <span class="card-meta">${meta}</span>
+      <h3>${title}</h3>
+      <p>${org}</p>
+      ${link ? `<a href="${link.startsWith("http") ? link : `https://${link}`}" target="_blank" rel="noreferrer">${link}</a>` : ""}
+    </article>
+  `).join("");
+}
+
+function renderCertifications(data) {
+  select("#certGrid").innerHTML = data.certifications.items.map(([title, description]) => `
+    <article class="cert-card reveal">
+      <span class="card-meta">CV</span>
+      <h3>${title}</h3>
+      <p>${description}</p>
+    </article>
+  `).join("");
+}
+
+function renderContact(data) {
+  select("#contactActions").innerHTML = data.contact.actions.map(([label, meta, href, icon]) => {
+    const content = `
+      <span class="contact-icon" aria-hidden="true">${icons[icon]}</span>
+      <span class="contact-text">
+        <span class="contact-label">${label}</span>
+        <span class="contact-meta">${meta}</span>
+      </span>
+    `;
+
+    if (!href) {
+      return `<span class="contact-action disabled" aria-disabled="true">${content}</span>`;
+    }
+
+    const target = href.startsWith("http") ? ' target="_blank" rel="noreferrer"' : "";
+    return `<a class="contact-action" href="${href}"${target}>${content}</a>`;
+  }).join("");
+}
+
+function renderAll() {
+  const data = translations[currentLang];
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+  applyStaticText(data);
+  renderHeroMetrics(data);
+  renderStats(data);
+  renderFacts(data);
+  renderStrengths(data);
+  renderExperience(data);
+  renderSkills(data);
+  renderProjects(data);
+  renderEducation(data);
+  renderCertifications(data);
+  renderContact(data);
+  observeReveal();
+  animateVisibleSkillBars();
+}
+
+function observeReveal() {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  selectAll(".reveal").forEach((node) => revealObserver.observe(node));
+}
+
+function animateCounters() {
+  if (hasAnimatedCounters) return;
+  hasAnimatedCounters = true;
+  selectAll(".stat-number").forEach((node) => {
+    const target = Number(node.dataset.count);
+    const suffix = node.dataset.suffix || "";
+    const start = performance.now();
+    const duration = 1100;
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(target * eased);
+      node.textContent = `${value}${suffix}`;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  });
+}
+
+function animateVisibleSkillBars() {
+  requestAnimationFrame(() => {
+    selectAll(".skill-fill").forEach((bar) => {
+      bar.style.width = `${bar.dataset.fill}%`;
+    });
+  });
+}
+
+function setupNavigation() {
+  const nav = select("#siteNav");
+  const toggle = select(".nav-toggle");
+
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+
+  selectAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      selectAll(".nav-link").forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      });
+    });
+  }, { rootMargin: "-42% 0px -48% 0px", threshold: 0 });
+
+  selectAll("main section[data-section]").forEach((section) => sectionObserver.observe(section));
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) animateCounters();
+    });
+  }, { threshold: 0.32 });
+
+  statsObserver.observe(select("#statistics"));
+}
+
+function setupLanguages() {
+  selectAll(".lang-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      currentLang = button.dataset.lang;
+      selectAll(".lang-btn").forEach((btn) => btn.classList.toggle("active", btn === button));
+      renderAll();
+    });
+  });
+}
+
+function setupParallax() {
+  const visual = select(".profile-frame");
+  const ambientOne = select(".ambient-one");
+  const ambientTwo = select(".ambient-two");
+
+  window.addEventListener("scroll", () => {
+    const y = window.scrollY;
+    visual.style.transform = `translateY(${Math.min(y * 0.018, 18)}px)`;
+    ambientOne.style.transform = `translateY(${y * 0.035}px)`;
+    ambientTwo.style.transform = `translateY(${-y * 0.025}px)`;
+  }, { passive: true });
+}
+
+function setupParticles() {
+  const canvas = select("#particleCanvas");
+  const context = canvas.getContext("2d");
+  const particles = [];
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const density = prefersReduced ? 24 : 72;
+
+  function resize() {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = window.innerWidth * ratio;
+    canvas.height = window.innerHeight * ratio;
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${window.innerHeight}px`;
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  }
+
+  function createParticles() {
+    particles.length = 0;
+    for (let index = 0; index < density; index += 1) {
+      particles.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        radius: Math.random() * 1.8 + 0.4,
+        speed: Math.random() * 0.28 + 0.08,
+        alpha: Math.random() * 0.45 + 0.1
+      });
+    }
+  }
+
+  function draw() {
+    context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    particles.forEach((particle) => {
+      particle.y -= particle.speed;
+      particle.x += Math.sin((particle.y + particle.radius) * 0.01) * 0.18;
+
+      if (particle.y < -10) {
+        particle.y = window.innerHeight + 10;
+        particle.x = Math.random() * window.innerWidth;
+      }
+
+      context.beginPath();
+      context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+      context.fillStyle = `rgba(226, 34, 39, ${particle.alpha})`;
+      context.shadowColor = "rgba(226, 34, 39, 0.8)";
+      context.shadowBlur = 10;
+      context.fill();
+      context.shadowBlur = 0;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  createParticles();
+  draw();
+  window.addEventListener("resize", () => {
+    resize();
+    createParticles();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderAll();
+  setupNavigation();
+  setupLanguages();
+  setupParallax();
+  setupParticles();
+});
+
+  </script>
+</body>
+</html>
